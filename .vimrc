@@ -41,6 +41,13 @@ Plugin 'majutsushi/tagbar'
 " theme related
 Plugin 'altercation/vim-colors-solarized'
 
+" minibuf 
+" use :b 1 :b2 to switch between buff
+Plugin 'fholgado/minibufexpl.vim'
+
+" nerdtree 
+" for IDE-like file navigation
+Plugin 'scrooloose/nerdtree'
 
 
 " Install L9 and avoid a Naming conflict if you've already installed a
@@ -72,30 +79,20 @@ let Tlist_Exit_OnlyWindow=1
 "use F9 to open taglist only
 map <silent> <F9> :TlistToggle<cr>
 
-"
-" Cscope
-if has("cscope")
-                set csprg=/usr/bin/cscope
-                set csto=0
-              "  set cst
-                set nocsverb
-                " add any database in current directory
-                if filereadable("cscope.out")
-                    cs add cscope.out
-                " else add database pointed to by environment
-                elseif $CSCOPE_DB != ""
-                    cs add $CSCOPE_DB
-                endif
-                set csverb
-        endif
-" using cscope in quickfix
-:set cscopequickfix=s-,c-,d-,i-,t-,e-
 
-" 
 " add the tagbar support
 nmap <F8> :TagbarToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
-" syntax enable
-"set background=dark
-"colorscheme solarized
+" use Grep to search string
+" grep -nR "something"
+
+syntax on
+" set background=dark
+" colorscheme solarized
+
+
+
+
+
 
