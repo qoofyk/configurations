@@ -20,6 +20,8 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 
+Plugin 'a.vim'
+
 " plugin
 Plugin 'taglist.vim'
 
@@ -91,7 +93,10 @@ syntax on
 " set background=dark
 " colorscheme solarized
 
-
+augroup resCur
+	autocmd!
+        autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup END
 
 
 
