@@ -51,6 +51,11 @@ Plugin 'fholgado/minibufexpl.vim'
 " for IDE-like file navigation
 Plugin 'scrooloose/nerdtree'
 
+"vimoutliner for note taking
+Plugin 'vimoutliner/vimoutliner'
+" default is set into ',,'
+" :help votl_cheatsheet for quick check
+
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -58,6 +63,8 @@ Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -92,6 +99,14 @@ map <C-n> :NERDTreeToggle<CR>
 syntax on
 " set background=dark
 " colorscheme solarized
+
+set cursorline
+set tabstop=4
+"
+""always uses spaces instead of tab characters
+set expandtab
+" size of an "indent"
+set shiftwidth=4
 
 augroup resCur
 	autocmd!
