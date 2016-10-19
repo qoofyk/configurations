@@ -1,0 +1,47 @@
+#!/bin/bash  
+#SBATCH -J "minmax_feng"  
+#SBATCH -o "minmax%j.out"  
+#SBATCH -p shared 
+#SBATCH -n 3
+#SBATCH --export=ALL  
+#SBATCH -t 00:10:00  
+
+#This job runs with 1 nodes, 6 cores per node for a total of 6 cores.  
+#ibrun in verbose mode will give binding detail  
+
+PBS_O_WORKDIR=/home/rlu/ds_examples/ex3_minmax
+DS_SERVER=/home/rlu/Dataspacesroot/bin/dataspaces_server
+PBS_RESULTDIR=${PBS_O_WORKDIR}/results
+
+mkdir -pv ${PBS_RESULTDIR}
+cd $PBS_O_WORKDIR
+
+## Clean up
+rm -f conf *.log srv.lck
+rm -f dataspaces.conf
+
+## Create dataspaces configuration file
+echo "## Config file for DataSpaces
+ndim = 3
+dims = 128, 128, 128 
+max_versions = 1
+max_readers = 1
+lock_type = 2
+" > dataspaces.conf
+
+## Run DataSpaces servers
+ibrun -n 1 ${DS_SERVER} -s 1 -c 9  >& $PBS_RESULTDIR/server.log &
+## Give some time for the servers to load and startup
+while [ ! -f conf ]; do
+    sleep 1s
+done
+sleep 5s  # wait server to fill up the conf file
+
+## Run writer application
+ibrun -n 1 ./minmaxavg_writer >& $PBS_RESULTDIR/writer.log &
+
+## Run reader application
+ibrun -n 8 ./minmaxavg_reader >& $PBS_RESULTDIR/reader.log &
+
+## Wait for the entire workflow to finish
+wait
