@@ -109,6 +109,9 @@ set expandtab
 " size of an "indent"
 set shiftwidth=4
 
+""set hi Search cterm=NONE ctermfg=white ctermbg=blue
+hi Search ctermfg=grey ctermbg=black
+
 augroup resCur
 	autocmd!
         autocmd BufReadPost * call setpos(".", getpos("'\""))
