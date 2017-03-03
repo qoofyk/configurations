@@ -13,6 +13,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 
+" auto completion
+Plugin 'Valloric/YouCompleteMe'
+
 " fugitive is a tool for Git and Github
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
