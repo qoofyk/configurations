@@ -14,7 +14,8 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 
 " auto completion
-Plugin 'Valloric/YouCompleteMe'
+" ./install.py --clang-completer --system-libclang
+" Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
 " Keep Plugin commands between vundle#begin/end.
@@ -67,6 +68,8 @@ Plugin 'vimoutliner/vimoutliner'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" ycm
+" let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 
 
 filetype plugin indent on    " required
