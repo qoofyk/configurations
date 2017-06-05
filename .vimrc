@@ -115,6 +115,9 @@ set expandtab
 " size of an "indent"
 set shiftwidth=4
 
+" set tags=; cs add in the .vimlocal file of project root
+silent! so .vimlocal
+
 ""set hi Search cterm=NONE ctermfg=white ctermbg=blue
 hi Search ctermfg=grey ctermbg=black
 
