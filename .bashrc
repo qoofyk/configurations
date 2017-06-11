@@ -27,6 +27,7 @@ alias xsede="ssh -l fengggli login.xsede.org"
 alias comet="ssh rlu@comet.sdsc.xsede.org"
 alias karst="ssh lifen@karst.uits.iu.edu"
 alias bridges="ssh fli5@bridges.psc.xsede.org"
+alias guest_machine="ssh -X fengggli@192.168.56.2"
 
 alias setdpi="xrandr --output eDP-1 --auto --scale 0.8x0.8 --output HDMI-1 --auto --scale 1x1 --left-of eDP-1"
 alias setnodpi="xrandr --output eDP-1 --auto --scale 1x1 --output HDMI-1 --auto --scale 1x1 --left-of eDP-1"

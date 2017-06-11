@@ -12,6 +12,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
+" auto commenter
+Plugin 'scrooloose/nerdcommenter'
 
 " auto completion
 " ./install.py --clang-completer --system-libclang
