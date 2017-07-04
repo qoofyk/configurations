@@ -73,6 +73,20 @@ export PROMPT_COMMAND='echo -ne "\033]0; $HOSTNAME: $PWD\007" '
 # added by Anaconda3 4.2.0 installer
 export PATH=/home/lifeng/tools/ParaView-4.3.1-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:/home/lifeng/tools/anaconda/bin:~/bin:$PATH
 
+## auto login
+#te the folder: /etc/systemd/system/getty@tty1.service.d
+
+#Create the file: /etc/systemd/system/getty@tty1.service.d/override.conf
+
+#Open the file with your favorite editor and add this:
+
+#[Service]
+#ExecStart=
+#ExecStart=-/sbin/agetty --noissue --autologin myusername %I $TERM
+#Type=idle
+
+#Replace myusername by your user name.
+
 #export PYTHONPATH=$PYTHONPATH:/usr/lib/paraview-5.1/site-packages/ #fixes "no module named paraview"
 #export PYTHONPATH=/home/lifeng/tools/Paraview-5.2/lib:$PYTHONPATH
 #export PYTHONPATH=$PYTHONPATH:/usr/lib/paraview-5.1/ #fixes "ImportError: No module named libvtkCommonPython"

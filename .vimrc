@@ -62,6 +62,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vimoutliner/vimoutliner'
 " default is set into ',,'
 " :help votl_cheatsheet for quick check
+"Plugin 'vim-scripts/cscope.vim'
 
 
 " Install L9 and avoid a Naming conflict if you've already installed a
