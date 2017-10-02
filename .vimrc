@@ -12,9 +12,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
+" auto commenter
+Plugin 'scrooloose/nerdcommenter'
 
 " auto completion
-Plugin 'Valloric/YouCompleteMe'
+" ./install.py --clang-completer --system-libclang
+" Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
 " Keep Plugin commands between vundle#begin/end.
@@ -59,6 +62,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vimoutliner/vimoutliner'
 " default is set into ',,'
 " :help votl_cheatsheet for quick check
+"Plugin 'vim-scripts/cscope.vim'
 
 
 " Install L9 and avoid a Naming conflict if you've already installed a
@@ -67,6 +71,8 @@ Plugin 'vimoutliner/vimoutliner'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" ycm
+" let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 
 
 filetype plugin indent on    " required
@@ -111,6 +117,9 @@ set tabstop=4
 set expandtab
 " size of an "indent"
 set shiftwidth=4
+
+" set tags=; cs add in the .vimlocal file of project root
+silent! so .vimlocal
 
 ""set hi Search cterm=NONE ctermfg=white ctermbg=blue
 hi Search ctermfg=grey ctermbg=black
