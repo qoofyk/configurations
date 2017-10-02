@@ -14,7 +14,7 @@ alias cp='cp -i'           # prompt before overwrite (same general problem as th
 alias mv='mv -i'           # prompt before overwrite (same general problem as the rm)
 
 alias vi='vim'             # use improved vi editor
-alias grep='grep -n --color' # let grep show number and color
+alias grep='grep --color' # let grep show number and color
 
 # some useful command
 alias iuvpn="sudo openconnect --cafile /etc/ssl/certs/ca-certificates.crt --juniper https://vpn.iu.edu"
@@ -34,7 +34,7 @@ alias ds03="ssh lifen@10.234.136.58"
 alias ds04="ssh lifen@10.234.136.59"
 alias ds05="ssh lifen@10.234.136.60"
 
-echo "USER                 RSS      PROCS" ;echo "-------------------- -------- -----" ;ps hax -o rss,user | awk '{rss[$2]+=$1;procs[$2]+=1;}END{for(user in rss) printf "%-20s %8.0f %5.0f\n", user, rss[user]/1024, procs[user];}' | sort -rnk2
+#echo "USER                 RSS      PROCS" ;echo "-------------------- -------- -----" ;ps hax -o rss,user | awk '{rss[$2]+=$1;procs[$2]+=1;}END{for(user in rss) printf "%-20s %8.0f %5.0f\n", user, rss[user]/1024, procs[user];}' | sort -rnk2
 # PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$' 
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]' 
 
@@ -51,9 +51,6 @@ man() {
 
 
 
-export PATH=~/bin:$PATH
 export PROMPT_COMMAND='echo -ne "\033]0; $HOSTNAME: $PWD\007" '
 
 
-# added by Anaconda3 4.2.0 installer
-export PATH="/home/lifeng/tools/anaconda/bin:$PATH"
