@@ -33,7 +33,7 @@ man() {
 
 export PROMPT_COMMAND='echo -ne "\033]0; $HOSTNAME: $PWD\007" '
 
-source  $HOME/configurations/stampede2.bashrc
+source  $HOME/configurations/bridges.bashrc
 
 
 
