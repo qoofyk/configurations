@@ -20,7 +20,11 @@ echo "USER                 RSS      PROCS" ;echo "-------------------- -------- 
 
 # added by Anaconda3 4.2.0 installer
 #export PATH=/home/lifeng/tools/ParaView-4.3.1-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:/home/lifeng/tools/anaconda/bin:~/bin:$PATH
-export PATH=/home/lifeng/.gem/ruby/2.4.0/bin:/home/lifeng/Downloads/tau/tau-2.26.3/x86_64/bin:/home/lifeng/tools/ParaView-4.3.1-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:/home/lifeng/tools/anaconda/bin:~/bin:$PATH
+
+#export PATH=/home/lifeng/.gem/ruby/2.4.0/bin:/home/lifeng/Downloads/tau/tau-2.26.3/x86_64/bin:/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:/home/lifeng/tools/anaconda/bin:~/bin:$PATH
+#export PATH=/home/lifeng/tools/anaconda/bin:~/bin:$PATH
+#export PATH=/home/lifeng/.gem/ruby/2.4.0/bin:/home/lifeng/Downloads/tau/tau-2.26.3/x86_64/bin:/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:~/bin:$PATH
+export PATH=/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:~/bin:$PATH
 
 ## auto login
 #te the folder: /etc/systemd/system/getty@tty1.service.d
