@@ -9,8 +9,12 @@ alias xsede="ssh -l fengggli login.xsede.org"
 alias comet="ssh rlu@comet.sdsc.xsede.org"
 alias karst="ssh lifen@karst.uits.iu.edu"
 alias bridges="ssh fli5@br005.bridges.psc.edu"
+alias yuankun_bridges="ssh qoofyk@br006.bridges.psc.edu"
 alias guest_machine="ssh -X fengggli@192.168.56.2"
 alias qemu_guest="ssh -p 2222 fengggli@localhost"
+alias stampede="ssh -X tg837458@login2.stampede2.tacc.utexas.edu"
+alias 20wk300="ssh -X lifen@149.166.112.27"
+alias 1wk300="ssh -X lifeng@149.166.112.149"
 
 alias setdpi="xrandr --output eDP-1 --auto --scale 0.8x0.8 --output HDMI-1 --auto --scale 1x1 --left-of eDP-1"
 alias setnodpi="xrandr --output eDP-1 --auto --scale 1x1 --output HDMI-1 --auto --scale 1x1 --left-of eDP-1"
@@ -37,7 +41,11 @@ echo "USER                 RSS      PROCS" ;echo "-------------------- -------- 
 
 # added by Anaconda3 4.2.0 installer
 #export PATH=/home/lifeng/tools/ParaView-4.3.1-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:/home/lifeng/tools/anaconda/bin:~/bin:$PATH
-export PATH=/home/lifeng/.gem/ruby/2.4.0/bin:/home/lifeng/Downloads/tau/tau-2.26.3/x86_64/bin:/home/lifeng/tools/ParaView-4.3.1-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:/home/lifeng/tools/anaconda/bin:~/bin:$PATH
+
+#export PATH=/home/lifeng/.gem/ruby/2.4.0/bin:/home/lifeng/Downloads/tau/tau-2.26.3/x86_64/bin:/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:/home/lifeng/tools/anaconda/bin:~/bin:$PATH
+#export PATH=/home/lifeng/tools/anaconda/bin:~/bin:$PATH
+#export PATH=/home/lifeng/.gem/ruby/2.4.0/bin:/home/lifeng/Downloads/tau/tau-2.26.3/x86_64/bin:/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:/home/lifeng/tools/phantomjs-2.1.1-linux-x86_64/bin:~/bin:$PATH
+export PATH=/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:~/bin:$PATH
 
 ## auto login
 #te the folder: /etc/systemd/system/getty@tty1.service.d
