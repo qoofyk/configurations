@@ -10,7 +10,6 @@ alias start_pvserver_reversed="pvserver -rc --client-host=140.182.0.241"
 # http://localhost:9981/
 alias tvserver="systemctl start tvheadend"
 
-alias mydesktop="rdesktop -g 1440x900 -P -z -x l -r sound:off  in-csci-27sl112.ads.iu.edu"
 
 
 # close firefox
