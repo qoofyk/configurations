@@ -51,6 +51,12 @@ elif [ `hostname | cut -c 1-4` == "asus" ]; then
 elif [ `hostname | cut -c 1-3` == "1wk" ]; then
     source  $HOME/configurations/delldesktop.bashrc
     echo "----[$MYPREFIX]----: now using dell desktop"
+elif [ `hostname | cut -c 1-7` == "in-csci" ]; then
+    source  $HOME/configurations/delldesktop.bashrc
+    echo "----[$MYPREFIX]----: now using dell desktop"
+elif [ `hostname | cut -c 6-13` == "OptiPlex" ]; then
+    source  $HOME/configurations/delldesktop.bashrc
+    echo "----[$MYPREFIX]----: now using dell desktop"
 
 else
     echo "machine name not detected!, add in $HOME/configurations"
