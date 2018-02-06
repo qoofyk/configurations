@@ -8,8 +8,14 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+"" vim is killed by accident? use fg to call it back
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+"" c++ hightlight
+"" this require lua support for vim, install vim-gnome
+Plugin 'jeaye/color_coded'
 
 " The following are examples of different formats supported.
 " auto commenter
@@ -17,6 +23,7 @@ Plugin 'scrooloose/nerdcommenter'
 
 " auto completion
 " ./install.py --clang-completer --system-libclang
+" to add compiler flags use the CMAKE_EXPORT_COMPILE_COMMANDS
 Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
