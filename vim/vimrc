@@ -151,6 +151,21 @@ if has("autocmd")
     autocmd BufNewFile *.h 0r ~/configurations/vim/templates/skeleton.c |ks|call Created() |call append(line('$'), IncludeGuard())|'s
     autocmd BufWritePre,FileWritePre *.c   ks|call LastMod()|'s
 
+    autocmd BufNewFile CHANGELOG* 0r ~/configurations/vim/templates/skeleton.CHANGELOG.md |ks|'s
+    autocmd BufReadPost,BufNewFile  CHANGELOG* ks|call append(8, NewLog())|'s
+
+	function! NewLog()
+	   let lines = []
+	   let lines += [""]
+	   let lines += ["##" . strftime("%Y %b %d")]
+       let lines += ["[TODO]:"]
+       let lines += ["\t1. sth missing"]
+       let lines += ["[changed]:"]
+       let lines += ["\t2. sth changed"]
+       let lines += ["[added]:"]
+       let lines += ["\t3. sth added"]
+	   return lines
+	endfunction
 	function! FileName()
 	   return expand('%:t')
 	endfunction
