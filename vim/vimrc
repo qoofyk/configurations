@@ -20,7 +20,6 @@ Plugin 'jeaye/color_coded'
 " The following are examples of different formats supported.
 " auto commenter
 Plugin 'scrooloose/nerdcommenter'
-
 " auto completion
 " ./install.py --clang-completer --system-libclang
 " to add compiler flags use the CMAKE_EXPORT_COMPILE_COMMANDS
@@ -152,7 +151,7 @@ if has("autocmd")
     autocmd BufWritePre,FileWritePre *.c   ks|call LastMod()|'s
 
     autocmd BufNewFile CHANGELOG* 0r ~/configurations/vim/templates/skeleton.CHANGELOG.md |ks|'s
-    autocmd BufReadPost,BufNewFile  CHANGELOG* ks|call append(8, NewLog())|'s
+   "  autocmd BufReadPost,BufNewFile  CHANGELOG* ks|call append(8, NewLog())|'s
 
 	function! NewLog()
 	   let lines = []
