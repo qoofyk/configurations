@@ -10,8 +10,13 @@ call vundle#begin()
 
 "" vim is killed by accident? use fg to call it back
 
+"
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+"latex support
+Plugin "lervag/vimtex"
 
 "" c++ hightlight
 "" this require lua support for vim, install vim-gnome
