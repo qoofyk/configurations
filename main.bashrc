@@ -52,8 +52,8 @@ elif [ `hostname | cut -c 1-4` == "asus" ]; then
     echo "----[$MYPREFIX]----: now using my asus arch"
 
 elif [ `hostname | cut -c 1-3` == "1wk" ]; then
-    source  $HOME/configurations/delldesktop.bashrc
-    echo "----[$MYPREFIX]----: now using dell desktop"
+    source  $HOME/configurations/comanche_host.bashrc
+    echo "----[$MYPREFIX]----: now using comanche"
 elif [ `hostname | cut -c 1-7` == "in-csci" ]; then
     source  $HOME/configurations/delldesktop.bashrc
     echo "----[$MYPREFIX]----: now using dell desktop"
