@@ -15,8 +15,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"latex support
-Plugin "lervag/vimtex"
+" latex support
+Plugin 'lervag/vimtex'
 
 "" c++ hightlight
 "" this require lua support for vim, install vim-gnome
@@ -85,6 +85,10 @@ Plugin 'vimoutliner/vimoutliner'
 call vundle#end()            " required
 " ycm
 " let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+
+" spell check
+set spelllang=en
+set spellfile=$HOME/Dropbox/Contents/vim/spell/en.utf-4.add
 
 
 filetype plugin indent on    " required
