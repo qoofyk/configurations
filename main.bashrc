@@ -16,10 +16,9 @@ alias grep='grep --color' # let grep show number and color
 
 # PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$' 
 
-source colormap.sh
+source $HOME/configurations/colormap.sh
 
-
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]' 
+PS1="$HC$FGRN\u@\h$RS:$FCYN\w$RS\$"
 
 # colorful manpages
 man() {
@@ -33,8 +32,6 @@ man() {
 }
 
 MYPREFIX="fengggli's auto bash setup"
-
-export PROMPT_COMMAND='echo -ne "\033]0; $HOSTNAME: $PWD\007" '
 
 if [ `hostname | cut -c 1-2` == "br" ]; then
     source  $HOME/configurations/bridges.bashrc
