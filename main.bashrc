@@ -20,7 +20,8 @@ alias grep='grep --color' # let grep show number and color
 
 source $HOME/configurations/colormap.sh
 
-PS1="$HC$FGRN\u@\h$RS:$FCYN\w$RS\$"
+# STY: see the ENVIRONMENT section screen man page
+PS1="$HC$FGRN\u@\h$FYEL(`echo $STY|awk -F. '{print $2}'`:${WINDOW})$RS:$FCYN\w$RS\$"
 
 # colorful manpages
 man() {
