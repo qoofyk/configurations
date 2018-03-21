@@ -2,8 +2,8 @@
  * Description:
  *
  * First created: 
- * Last modified: 2018 Jan 26
+ * Last modified: 2018 Feb 27
  *
- * Author: Feng Li
- * e-mail: fengggli@yahoo.com
+ * Author: Yuankun Fu
+ * e-mail: qoofyk@gmail.com
  */

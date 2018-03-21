@@ -24,7 +24,7 @@ Plugin 'scrooloose/nerdcommenter'
 " auto completion
 " ./install.py --clang-completer --system-libclang
 " to add compiler flags use the CMAKE_EXPORT_COMPILE_COMMANDS
-Plugin 'Valloric/YouCompleteMe'
+ Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
 " Keep Plugin commands between vundle#begin/end.

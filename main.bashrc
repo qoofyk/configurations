@@ -16,7 +16,7 @@ alias grep='grep --color' # let grep show number and color
 
 # PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$' 
 
-source colormap.sh
+source $HOME/configurations/colormap.sh
 
 
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]' 
@@ -32,7 +32,7 @@ man() {
     command man "$@"
 }
 
-MYPREFIX="fengggli's auto bash setup"
+MYPREFIX="Yuankun Fu's auto bash setup"
 
 export PROMPT_COMMAND='echo -ne "\033]0; $HOSTNAME: $PWD\007" '
 
@@ -63,6 +63,7 @@ elif [ `hostname | cut -c 6-13` == "OptiPlex" ]; then
 
 else
     echo "machine name not detected!, add in $HOME/configurations"
+    source $HOME/configurations/hosts.conf
 
 fi
 
