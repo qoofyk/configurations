@@ -1,4 +1,6 @@
 #!/bin/bash
+#debug
+#set -x
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -16,7 +18,10 @@ alias grep='grep --color' # let grep show number and color
 
 # PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$' 
 
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]' 
+source $HOME/configurations/colormap.sh
+
+# STY: see the ENVIRONMENT section screen man page
+PS1="$HC$FGRN\u@\h$FYEL(`echo $STY|awk -F. '{print $2}'`:${WINDOW})$RS:$FCYN\w$RS\$"
 
 # colorful manpages
 man() {
@@ -31,32 +36,38 @@ man() {
 
 MYPREFIX="fengggli's auto bash setup"
 
-export PROMPT_COMMAND='echo -ne "\033]0; $HOSTNAME: $PWD\007" '
-
-if [ `hostname | cut -c 1-2` == "br" ]; then
+if [ x`hostname | cut -c 1-2` == x"br" ]; then
     source  $HOME/configurations/bridges.bashrc
     echo "----[$MYPREFIX]----: now using PSC Bridges"
-elif [ `hostname | cut -c 8-16` == "stampede2" ]; then
+elif [ x`hostname | cut -c 8-16` == x"stampede2" ]; then
     source  $HOME/configurations/stampede2.bashrc
     echo "----[$MYPREFIX]----: now using TACC Stampede2"
 
-elif [ `hostname | cut -c 1-5` == "comet" ]; then
+elif [ x`hostname | cut -c 1-5` == x"comet" ]; then
     source  $HOME/configurations/comet.bashrc
     echo "----[$MYPREFIX]----: now using  Comet"
 
-elif [ `hostname | cut -c 1-4` == "asus" ]; then
+elif [ x`hostname | cut -c 1-4` == x"asus" ]; then
     source  $HOME/configurations/laptop.bashrc
     echo "----[$MYPREFIX]----: now using my asus arch"
 
-elif [ `hostname | cut -c 1-3` == "1wk" ]; then
+elif [ x`hostname | cut -c 2-3` == x"1wk" ]; then
+    source  $HOME/configurations/comanche_host.bashrc
+    echo "----[$MYPREFIX]----: now using comanche"
+elif [ x`hostname | cut -c 1-7` == x"in-csci" ]; then
     source  $HOME/configurations/delldesktop.bashrc
     echo "----[$MYPREFIX]----: now using dell desktop"
 
 else
     echo "machine name not detected!, add in $HOME/configurations"
-
 fi
 
+
+CONDA_PATH=$HOME/software/anaconda3
+if [ -d $CONDA_PATH ]; then
+    export PATH=$CONDA_PATH/bin:$PATH
+    python --version
+fi
 
 
 

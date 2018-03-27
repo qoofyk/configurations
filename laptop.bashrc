@@ -10,7 +10,6 @@ alias start_pvserver_reversed="pvserver -rc --client-host=140.182.0.241"
 # http://localhost:9981/
 alias tvserver="systemctl start tvheadend"
 
-alias mydesktop="rdesktop -g 1440x900 -P -z -x l -r sound:off  in-csci-27sl112.ads.iu.edu"
 
 
 # close firefox
@@ -43,4 +42,7 @@ export PATH=/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:~/
 #export PYTHONPATH=$PYTHONPATH:/usr/lib/paraview-5.1/site-packages/ #fixes "no module named paraview"
 #export PYTHONPATH=/home/lifeng/tools/Paraview-5.2/lib:$PYTHONPATH
 #export PYTHONPATH=$PYTHONPATH:/usr/lib/paraview-5.1/ #fixes "ImportError: No module named libvtkCommonPython"
+#
+# set intel compilers:
+source /opt/intel/parallel_studio_xe_2018/bin/psxevars.sh
 
