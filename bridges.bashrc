@@ -10,14 +10,18 @@ export PATH=$PATH:/home/fli5/envs/remora/remora-1.8.2/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/fli5/envs/remora/remora-1.8.2/lib
 export REMORA_BIN=/home/fli5/envs/remora/remora-1.8.2/bin
 
-export WORK=/pylon2/ac561jp/fli5
+# plyon2 is not mounted any more on Mar 2018
+# I used to build all binaries there
+#export WORK=/pylon2/ac561jp/fli5
+
+export WORK=/pylon5/ac561jp/fli5/from_pylon2
 export PATH=$WORK/software/install/include:$WORK/software/install/bin:$PATH
 export LD_LIBRARY_PATH=$WORK/software/install/lib:$LD_LIBRARY_PATH
 
 export DECAF_PREFIX=$WORK/software/install  #instead set it in job file instead
 #export DECAF_PREFIX=$WORK/software/install_tau #instead set it in job file instead
 
-unset USE_DSPACES
+export USE_DSPACES=1
 
 #export TAU_OPTIONS="-optRevert -optAppCC=mpiicc -optAppCXX=mpiicpc -optAppF90=mpiifort"
 
@@ -28,11 +32,12 @@ module load cmake
 #module load ddt
 module load git
 
-if [ x"$USE_DSPACES" = "x" ];then
+if [ x"$USE_DSPACES" == "x" ];then
+    echo "using default intel compiler tools"
     module load intel
-
 else
 # to make dspace work, gcc and mvapich should be used in bridges
+    echo "using gcc for DataSpaces compacity"
     module unload intel
     module load mpi/gcc_mvapich
 fi
