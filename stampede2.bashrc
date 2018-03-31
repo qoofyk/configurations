@@ -10,7 +10,19 @@ export DECAF_PREFIX=/work/04446/tg837458/stampede2/software/install
 export LD_LIBRARY_PATH=/work/04446/tg837458/stampede2/software/install/lib:$LD_LIBRARY_PATH
 
 export PATH=$HOME/bin:$PATH
-export TAU_OPTIONS="-optRevert"
+#export TAU_OPTIONS="-optRevert -optTauSelectFile=/home1/04446/tg837458/Workspaces/General_Data_Broker/lbm_adios/configs/select.tau"
+export TAU_SELECT_FILE=$HOME/configurations/configs/select.tau
+export TAU_OPTIONS="-optRevert -optTauSelectFile=$TAU_SELECT_FILE"
+
+BUILD_TAU=1
+#unset BUILD_TAU
+
+if [ BUILD_TAU ]; then
+    PATH=/work/04446/tg837458/stampede2/envs/tau_bundle_2_27/pdt/x86_64//bin:$PATH
+    PATH=/work/04446/tg837458/stampede2/envs/tau_bundle_2_27/tau_opempi_pthread/x86_64/bin:$PATH
+    export TAU_MAKEFILE=/work/04446/tg837458/stampede2/envs/tau_bundle_2_27/tau_opempi_pthread/x86_64/lib/Makefile.tau-icpc-mpi-pthread-pdt-openmp
+fi
+
 
 # source ~/.modules
 echo `module list`

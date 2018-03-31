@@ -212,6 +212,17 @@ if has("autocmd")
     \ strftime("%Y %b %d")
   endfun
   augroup END
+
+  " older version of vim doesn't recoganize md as markdown
+  augroup markdown
+
+    " remove previous autocmds
+    autocmd!
+
+    " set every new or read *.md buffer to use the markdown filetype 
+    au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+  augroup END
 endif
 
 
