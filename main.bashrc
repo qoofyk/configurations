@@ -64,6 +64,12 @@ else
 fi
 
 
+CONDA_PATH=$HOME/software/anaconda3
+if [ -d $CONDA_PATH ]; then
+    export PATH=$CONDA_PATH/bin:$PATH
+    python --version
+fi
+
 
 
 
