@@ -13,6 +13,8 @@ alias rm='rm -i'           # prompt before overwrite (but dangerous, see rm for 
 alias cp='cp -i'           # prompt before overwrite (same general problem as the rm)
 alias mv='mv -i'           # prompt before overwrite (same general problem as the rm)
 
+alias less='less -r'
+
 alias vim='vim --servername viserver0'             # use improved vi editor
 alias grep='grep --color' # let grep show number and color
 
