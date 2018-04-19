@@ -88,6 +88,7 @@ call vundle#end()            " required
 " spell check
 set spelllang=en
 set spellfile=$HOME/Dropbox/Contents/vim/spell/en.utf-4.add
+highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
 
 
 filetype plugin indent on    " required

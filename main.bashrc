@@ -75,6 +75,8 @@ if [ -d $CONDA_PATH ]; then
     python --version
 fi
 
+export PATH=$HOME/configurations/bin:$PATH
+
 
 
 
