@@ -62,6 +62,7 @@ elif [ x`hostname | cut -c 1-7` == x"in-csci" ]; then
 
 else
     echo "machine name not detected!, add in $HOME/configurations"
+    source  $HOME/configurations/laptop.bashrc
 fi
 
 
