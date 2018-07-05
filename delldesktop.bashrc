@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/software/intel/parallel_studio_xe_2018/bin/psxevars.sh
+#source ~/software/intel/parallel_studio_xe_2018/bin/psxevars.sh
 source ~/configurations/hosts.conf
 
 export MANPATH=/home/lifen/software/texlive17/texmf-dist/doc/man:$MANPATH
