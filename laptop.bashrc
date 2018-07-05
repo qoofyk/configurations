@@ -44,5 +44,10 @@ export PATH=/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:~/
 #export PYTHONPATH=$PYTHONPATH:/usr/lib/paraview-5.1/ #fixes "ImportError: No module named libvtkCommonPython"
 #
 # set intel compilers:
-source /opt/intel/parallel_studio_xe_2018/bin/psxevars.sh
+
+INTEL_SOURCE_PATH=/opt/intel/parallel_studio_xe_2018/bin/psxevars.sh
+
+if [ -d $INTEL_SOURCE_PATH ]; then
+    source $INTEL_SOURCE_PATH
+fi
 
