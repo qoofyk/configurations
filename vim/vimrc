@@ -63,7 +63,7 @@ Plugin 'altercation/vim-colors-solarized'
 
 " minibuf 
 " use :b 1 :b2 to switch between buff
-Plugin 'fholgado/minibufexpl.vim'
+" Plugin 'fholgado/minibufexpl.vim'
 
 " nerdtree 
 " for IDE-like file navigation
@@ -127,12 +127,12 @@ syntax on
 " colorscheme solarized
 
 set cursorline
-set tabstop=4
+set tabstop=2
 "
 ""always uses spaces instead of tab characters
 set expandtab
 " size of an "indent"
-set shiftwidth=4
+set shiftwidth=2
 
 "" 
 set encoding=utf-8
@@ -231,6 +231,9 @@ augroup resCur
 	autocmd!
         autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
+
+" this makes vim look better! from https://unix.stackexchange.com/a/88880
+color desert
 
 
 
