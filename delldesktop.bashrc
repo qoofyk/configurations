@@ -4,7 +4,6 @@
 alias vim='vim --servername viserver0'             # use improved vi editor
 
 source ~/software/intel/parallel_studio_xe_2018/bin/psxevars.sh
->>>>>>> 4c14363b8dda47ef9af5756afd1759df31fbbc51
 source ~/configurations/hosts.conf
 
 export MANPATH=/home/lifen/software/texlive17/texmf-dist/doc/man:$MANPATH
