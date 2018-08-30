@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # First created: 
-# Last modified: 2018 Jan 26
+# Last modified: 2018 Aug 30
 
-# Author: Feng Li
-# email: fengggli@yahoo.com
+# Author: Yuankun Fu
+# email: qoofyk@gmail.com
 
