@@ -13,7 +13,8 @@ alias rm='rm -i'           # prompt before overwrite (but dangerous, see rm for 
 alias cp='cp -i'           # prompt before overwrite (same general problem as the rm)
 alias mv='mv -i'           # prompt before overwrite (same general problem as the rm)
 
-alias vi='vim'             # use improved vi editor
+alias less='less -r'
+
 alias grep='grep --color' # let grep show number and color
 
 # PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$' 
@@ -60,9 +61,19 @@ elif [ x`hostname | cut -c 1-7` == x"in-csci" ]; then
 
 else
     echo "machine name not detected!, add in $HOME/configurations"
-    source $HOME/configurations/hosts.conf
+    # servers
+    source ~/configurations/hosts.conf
+    echo "host file added"
 fi
 
+
+CONDA_PATH=$HOME/software/anaconda3
+if [ -d $CONDA_PATH ]; then
+    export PATH=$CONDA_PATH/bin:$PATH
+    python --version
+fi
+
+export PATH=$HOME/configurations/bin:$PATH
 
 
 
