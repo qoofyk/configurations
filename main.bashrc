@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto' # use colors
+alias ls='ls -G' # use colors
 alias la='ls -Fa'          # list all files
 alias ll='ls -Fls'         # long listing format
 
@@ -13,7 +13,8 @@ alias rm='rm -i'           # prompt before overwrite (but dangerous, see rm for 
 alias cp='cp -i'           # prompt before overwrite (same general problem as the rm)
 alias mv='mv -i'           # prompt before overwrite (same general problem as the rm)
 
-alias vi='vim'             # use improved vi editor
+alias vi='mvim -v'             # use improved vi editor
+alias vim='mvim -v'             # use improved vi editor
 alias grep='grep --color' # let grep show number and color
 
 # PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$' 
