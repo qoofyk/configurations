@@ -17,7 +17,7 @@ source .bashrc
 cd $HOME
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 mv .vimrc .vimrc.backup
-ln -s ~/configurations/.vimrc ~/.vimrc
+ln -s ~/configurations/vim/vimrc ~/.vimrc
 vim
 ```
 

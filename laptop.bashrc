@@ -43,8 +43,12 @@ export PATH=/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:~/
 #export PYTHONPATH=/home/lifeng/tools/Paraview-5.2/lib:$PYTHONPATH
 #export PYTHONPATH=$PYTHONPATH:/usr/lib/paraview-5.1/ #fixes "ImportError: No module named libvtkCommonPython"
 #
-# set intel compilers:
-#source /opt/intel/parallel_studio_xe_2018/bin/psxevars.sh
+## set intel compilers:
+#
+#INTEL_SOURCE_PATH=/opt/intel/parallel_studio_xe_2018/bin/psxevars.sh
+#if [ -d $INTEL_SOURCE_PATH ]; then
+    #source $INTEL_SOURCE_PATH
+#fi
 
 # this messes up with dbus
 CONDA_PATH=$HOME/software/anaconda3
@@ -52,5 +56,3 @@ if [ -d $CONDA_PATH ]; then
     export PATH=$CONDA_PATH/bin:$PATH
     python --version
 fi
-
-
