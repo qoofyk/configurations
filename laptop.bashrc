@@ -1,7 +1,7 @@
 # servers
 source ~/configurations/hosts.conf
 # some useful command
-alias iuvpn="sudo openconnect --cafile /etc/ssl/certs/ca-certificates.crt --juniper https://vpn.iu.edu"
+alias iuvpn="sudo openconnect --cafile /etc/ssl/certs/ca-certificates.crt --juniper https://vpn.iu.edu" # type sms in the password #2 and use the received sms code as password #2
 alias setdpi="xrandr --output eDP-1 --auto --scale 0.8x0.8 --output HDMI-1 --auto --scale 1x1 --left-of eDP-1"
 alias setnodpi="xrandr --output eDP1 --auto --scale 1x1 --output HDMI-1 --auto --scale 1x1 --left-of eDP-1"
 alias start_pvserver_reversed="pvserver -rc --client-host=140.182.0.241"
@@ -43,11 +43,16 @@ export PATH=/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:~/
 #export PYTHONPATH=/home/lifeng/tools/Paraview-5.2/lib:$PYTHONPATH
 #export PYTHONPATH=$PYTHONPATH:/usr/lib/paraview-5.1/ #fixes "ImportError: No module named libvtkCommonPython"
 #
-# set intel compilers:
+## set intel compilers:
+#
+#INTEL_SOURCE_PATH=/opt/intel/parallel_studio_xe_2018/bin/psxevars.sh
+#if [ -d $INTEL_SOURCE_PATH ]; then
+    #source $INTEL_SOURCE_PATH
+#fi
 
-INTEL_SOURCE_PATH=/opt/intel/parallel_studio_xe_2018/bin/psxevars.sh
-
-if [ -d $INTEL_SOURCE_PATH ]; then
-    source $INTEL_SOURCE_PATH
+# this messes up with dbus
+CONDA_PATH=$HOME/software/anaconda3
+if [ -d $CONDA_PATH ]; then
+    export PATH=$CONDA_PATH/bin:$PATH
+    python --version
 fi
-
