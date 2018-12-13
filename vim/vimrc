@@ -184,7 +184,7 @@ if has("autocmd")
 	   return lines
 	endfunction
 "autocmd BufNewFile *.h  call append(0, IncludeGuard())
-  
+"
   augroup END
 
   " older version of vim doesn't recoganize md as markdown
@@ -208,6 +208,5 @@ augroup END
 " this makes vim look better! from https://unix.stackexchange.com/a/88880
 color desert
 
-
-
-
+" trailing space
+match Error /\s\+$/
