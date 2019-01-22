@@ -61,7 +61,9 @@ elif [ x`hostname | cut -c 1-7` == x"in-csci" ]; then
 
 else
     echo "machine name not detected!, add in $HOME/configurations"
-    source $HOME/configurations/hosts.conf
+    # servers
+    source ~/configurations/hosts.conf
+    echo "host file added"
 fi
 
 
@@ -70,6 +72,8 @@ if [ -d $CONDA_PATH ]; then
     export PATH=$CONDA_PATH/bin:$PATH
     python --version
 fi
+
+export PATH=$HOME/configurations/bin:$PATH
 
 
 

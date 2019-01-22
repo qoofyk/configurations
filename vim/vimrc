@@ -20,7 +20,7 @@ Plugin 'lervag/vimtex'
 
 "" c++ hightlight
 "" this require lua support for vim, install vim-gnome
-Plugin 'jeaye/color_coded'
+"Plugin 'jeaye/color_coded'
 
 " The following are examples of different formats supported.
 " auto commenter
@@ -28,7 +28,7 @@ Plugin 'scrooloose/nerdcommenter'
 " auto completion
 " ./install.py --clang-completer --system-libclang
 " to add compiler flags use the CMAKE_EXPORT_COMPILE_COMMANDS
- Plugin 'Valloric/YouCompleteMe'
+ "Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
 " Keep Plugin commands between vundle#begin/end.
@@ -63,7 +63,7 @@ Plugin 'altercation/vim-colors-solarized'
 
 " minibuf 
 " use :b 1 :b2 to switch between buff
-Plugin 'fholgado/minibufexpl.vim'
+" Plugin 'fholgado/minibufexpl.vim'
 
 " nerdtree 
 " for IDE-like file navigation
@@ -88,6 +88,7 @@ call vundle#end()            " required
 " spell check
 set spelllang=en
 set spellfile=$HOME/Dropbox/Contents/vim/spell/en.utf-4.add
+highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
 
 
 filetype plugin indent on    " required
@@ -126,12 +127,12 @@ syntax on
 " colorscheme solarized
 
 set cursorline
-set tabstop=4
+set tabstop=2
 "
 ""always uses spaces instead of tab characters
 set expandtab
 " size of an "indent"
-set shiftwidth=4
+set shiftwidth=2
 
 "" 
 set encoding=utf-8
@@ -230,6 +231,9 @@ augroup resCur
 	autocmd!
         autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
+
+" this makes vim look better! from https://unix.stackexchange.com/a/88880
+color desert
 
 
 
