@@ -28,7 +28,7 @@ Plugin 'scrooloose/nerdcommenter'
 " auto completion
 " ./install.py --clang-completer --system-libclang
 " to add compiler flags use the CMAKE_EXPORT_COMPILE_COMMANDS
- "Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
 " Keep Plugin commands between vundle#begin/end.
@@ -91,6 +91,12 @@ set spellfile=$HOME/Dropbox/Contents/vim/spell/en.utf-4.add
 highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
 
 
+" It might use large amount of memory due to the tags:
+"   https://github.com/Valloric/YouCompleteMe/issues/595
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
+
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -148,33 +154,21 @@ hi Search ctermfg=grey ctermbg=black
 " also http://vim.wikia.com/wiki/Auto_commands_for_C/C%2B%2B_editing
 if has("autocmd")
   augroup templates
-    autocmd BufNewFile *.sh 0r ~/configurations/vim/templates/skeleton.sh |ks|call Created()|'s
-    autocmd BufWritePre,FileWritePre *.sh   ks|call LastMod()|'s
+    autocmd BufNewFile *.sh 0r ~/configurations/vim/templates/skeleton.sh 
+    "autocmd BufWritePre,FileWritePre *.sh   ks|call LastMod()|'s
 
-    autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c |ks|call Created()|'s
-    autocmd BufWritePre,FileWritePre *.cc   ks|call LastMod()|'s
+    autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c 
+    "autocmd BufWritePre,FileWritePre *.cc   ks|call LastMod()|'s
 
-    autocmd BufNewFile *.c 0r ~/configurations/vim/templates/skeleton.c |ks|call Created()|'s
-    autocmd BufWritePre,FileWritePre *.h   ks|call LastMod()|'s
+    autocmd BufNewFile *.c 0r ~/configurations/vim/templates/skeleton.c 
+    "autocmd BufWritePre,FileWritePre *.h   ks|call LastMod()|'s
 
-    autocmd BufNewFile *.h 0r ~/configurations/vim/templates/skeleton.c |ks|call Created() |call append(line('$'), IncludeGuard())|'s
-    autocmd BufWritePre,FileWritePre *.c   ks|call LastMod()|'s
+    autocmd BufNewFile *.h 0r ~/configurations/vim/templates/skeleton.c |ks |call append(line('$'), IncludeGuard())|'s
+    "autocmd BufWritePre,FileWritePre *.c   ks|call LastMod()|'s
 
     autocmd BufNewFile CHANGELOG* 0r ~/configurations/vim/templates/skeleton.CHANGELOG.md |ks|'s
    "  autocmd BufReadPost,BufNewFile  CHANGELOG* ks|call append(8, NewLog())|'s
 
-	function! NewLog()
-	   let lines = []
-	   let lines += [""]
-	   let lines += ["##" . strftime("%Y %b %d")]
-       let lines += ["[TODO]:"]
-       let lines += ["\t1. sth missing"]
-       let lines += ["[changed]:"]
-       let lines += ["\t2. sth changed"]
-       let lines += ["[added]:"]
-       let lines += ["\t3. sth added"]
-	   return lines
-	endfunction
 	function! FileName()
 	   return expand('%:t')
 	endfunction
@@ -190,28 +184,7 @@ if has("autocmd")
 	   return lines
 	endfunction
 "autocmd BufNewFile *.h  call append(0, IncludeGuard())
-
-  fun Created()
-    if line("$") > 20
-      let l = 20
-    else
-      let l = line("$")
-    endif
-    exe "1," . l . "g/First created: /s/First created: .*/First created: " .
-    \ strftime("%Y %b %d")
-  endfun
-
-
-  " change the last time modified
-  fun LastMod()
-    if line("$") > 20
-      let l = 20
-    else
-      let l = line("$")
-    endif
-    exe "1," . l . "g/Last modified: /s/Last modified: .*/Last modified: " .
-    \ strftime("%Y %b %d")
-  endfun
+"
   augroup END
 
   " older version of vim doesn't recoganize md as markdown
@@ -235,6 +208,5 @@ augroup END
 " this makes vim look better! from https://unix.stackexchange.com/a/88880
 color desert
 
-
-
-
+" trailing space
+match Error /\s\+$/

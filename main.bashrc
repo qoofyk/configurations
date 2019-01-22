@@ -67,11 +67,13 @@ else
 fi
 
 
-CONDA_PATH=$HOME/software/anaconda3
-if [ -d $CONDA_PATH ]; then
-    export PATH=$CONDA_PATH/bin:$PATH
-    python --version
-fi
+# this messes up with dbus
+#CONDA_PATH=$HOME/software/anaconda3
+#if [ -d $CONDA_PATH ]; then
+    #export PATH=$CONDA_PATH/bin:$PATH
+    #python --version
+#fi
+alias python-anaconda='/home/lifeng/software/anaconda3/bin/python'
 
 export PATH=$HOME/configurations/bin:$PATH
 
