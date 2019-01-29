@@ -75,6 +75,11 @@ Plugin 'vimoutliner/vimoutliner'
 " :help votl_cheatsheet for quick check
 "Plugin 'vim-scripts/cscope.vim'
 
+" See
+" https://powerline.readthedocs.io/en/master/installation/linux.html#fonts-installation
+" for fonts installation
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -140,7 +145,7 @@ set expandtab
 " size of an "indent"
 set shiftwidth=2
 
-"" 
+""
 set encoding=utf-8
 
 " set tags=; cs add in the .vimlocal file of project root
@@ -154,13 +159,13 @@ hi Search ctermfg=grey ctermbg=black
 " also http://vim.wikia.com/wiki/Auto_commands_for_C/C%2B%2B_editing
 if has("autocmd")
   augroup templates
-    autocmd BufNewFile *.sh 0r ~/configurations/vim/templates/skeleton.sh 
+    autocmd BufNewFile *.sh 0r ~/configurations/vim/templates/skeleton.sh
     "autocmd BufWritePre,FileWritePre *.sh   ks|call LastMod()|'s
 
-    autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c 
+    autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c
     "autocmd BufWritePre,FileWritePre *.cc   ks|call LastMod()|'s
 
-    autocmd BufNewFile *.c 0r ~/configurations/vim/templates/skeleton.c 
+    autocmd BufNewFile *.c 0r ~/configurations/vim/templates/skeleton.c
     "autocmd BufWritePre,FileWritePre *.h   ks|call LastMod()|'s
 
     autocmd BufNewFile *.h 0r ~/configurations/vim/templates/skeleton.c |ks |call append(line('$'), IncludeGuard())|'s
@@ -193,7 +198,7 @@ if has("autocmd")
     " remove previous autocmds
     autocmd!
 
-    " set every new or read *.md buffer to use the markdown filetype 
+    " set every new or read *.md buffer to use the markdown filetype
     au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
   augroup END
