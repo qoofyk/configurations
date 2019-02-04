@@ -28,7 +28,7 @@ Plugin 'scrooloose/nerdcommenter'
 " auto completion
 " ./install.py --clang-completer --system-libclang
 " to add compiler flags use the CMAKE_EXPORT_COMPILE_COMMANDS
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
 " Keep Plugin commands between vundle#begin/end.
@@ -89,6 +89,10 @@ Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 call vundle#end()            " required
 " ycm
 " let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+
+" default split position
+set splitbelow
+set splitright
 
 " spell check
 set spelllang=en
