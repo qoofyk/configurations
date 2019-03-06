@@ -18,10 +18,6 @@ Plugin 'VundleVim/Vundle.vim'
 " latex support
 Plugin 'lervag/vimtex'
 
-"" c++ hightlight
-"" this require lua support for vim, install vim-gnome
-Plugin 'jeaye/color_coded'
-
 " The following are examples of different formats supported.
 " auto commenter
 Plugin 'scrooloose/nerdcommenter'
@@ -31,7 +27,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
-" Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 
@@ -39,9 +34,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 
 Plugin 'a.vim'
-
-" plugin
-Plugin 'taglist.vim'
 
 " command-t is for fast file lookup, type \t to trigger
 " Git plugin not hosted on GitHub
@@ -55,7 +47,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 " spark up is a html-helping script
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-""
+"" install universal-ctags instead of old ctags
 Plugin 'majutsushi/tagbar'
 
 " theme related
@@ -79,6 +71,10 @@ Plugin 'vimoutliner/vimoutliner'
 " https://powerline.readthedocs.io/en/master/installation/linux.html#fonts-installation
 " for fonts installation
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" python syntax check
+" press F7 to check
+Plugin 'nvie/vim-flake8'
 
 
 " Install L9 and avoid a Naming conflict if you've already installed a
