@@ -18,9 +18,6 @@ cd $HOME/.vim/bundle/command-t
 rake make 
 )
 
-( echo "Build nstall YouComplete Me"
-cd $HOME/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
-)
+
 
 
