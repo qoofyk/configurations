@@ -138,11 +138,11 @@ syntax on
 " colorscheme solarized
 
 set cursorline
-set tabstop=2
 "
 ""always uses spaces instead of tab characters
 set expandtab
 " size of an "indent"
+set tabstop=2
 set shiftwidth=2
 
 ""
@@ -164,11 +164,13 @@ if has("autocmd")
 
     autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c
     "autocmd BufWritePre,FileWritePre *.cc   ks|call LastMod()|'s
+    autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c
 
-    autocmd BufNewFile *.c 0r ~/configurations/vim/templates/skeleton.c
+    autocmd BufNewFile *.cpp 0r ~/configurations/vim/templates/skeleton.c
     "autocmd BufWritePre,FileWritePre *.h   ks|call LastMod()|'s
 
     autocmd BufNewFile *.h 0r ~/configurations/vim/templates/skeleton.c |ks |call append(line('$'), IncludeGuard())|'s
+    autocmd BufNewFile *.hpp 0r ~/configurations/vim/templates/skeleton.c |ks |call append(line('$'), IncludeGuard())|'s
     "autocmd BufWritePre,FileWritePre *.c   ks|call LastMod()|'s
 
     autocmd BufNewFile CHANGELOG* 0r ~/configurations/vim/templates/skeleton.CHANGELOG.md |ks|'s
@@ -202,6 +204,19 @@ if has("autocmd")
     au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
   augroup END
+
+  augroup clangformat
+  " lang-format -style=google -dump-config > .clang-format
+    autocmd!
+
+		function! Formatonsave()
+			let l:formatdiff = 1
+      py3f /usr/share/clang/clang-format-6.0/clang-format.py
+		endfunction
+
+		autocmd BufWritePre *.h,*.cc,*.cpp,*.hpp call Formatonsave()
+  augroup END
+
 endif
 
 
