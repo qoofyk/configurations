@@ -19,7 +19,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'lervag/vimtex'
 
 " The following are examples of different formats supported.
-" auto commenter Plugin 'scrooloose/nerdcommenter'
+" auto commenter 
+Plugin 'scrooloose/nerdcommenter'
 
 " auto completion
 " see install.sh
@@ -103,6 +104,12 @@ highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
 "   https://github.com/Valloric/YouCompleteMe/issues/595
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
+
+" ale default, use :echo g: gle_c.. to check
+" ALEInfo
+let g:ale_c_parse_compile_commands = 1
+" let g:ale_completion_enabled = 1
+
 
 
 filetype plugin indent on    " required
@@ -189,7 +196,13 @@ if has("autocmd")
 	   let lines = []
 	   let lines +=  ["#ifndef " . HeadName() . "_"]
 	   let lines +=  ["#define " . HeadName() . "_"]
+	   let lines +=  ["#ifdef __cplusplus"]
+     let lines +=  ["extern \"C\" {"]
+     let lines +=  ["#endif"]
 	   let lines +=  [""]
+     let lines +=  ["#ifdef __cplusplus"]
+     let lines +=  ["}"]
+     let lines +=  ["#endif"]
 	   let lines +=  ["#endif"]
 	   return lines
 	endfunction
