@@ -18,20 +18,16 @@ Plugin 'VundleVim/Vundle.vim'
 " latex support
 Plugin 'lervag/vimtex'
 
-"" c++ hightlight
-"" this require lua support for vim, install vim-gnome
-"Plugin 'jeaye/color_coded'
-
 " The following are examples of different formats supported.
-" auto commenter
+" auto commenter 
 Plugin 'scrooloose/nerdcommenter'
+
 " auto completion
-" ./install.py --clang-completer --system-libclang
+" see install.sh
 " to add compiler flags use the CMAKE_EXPORT_COMPILE_COMMANDS
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 " fugitive is a tool for Git and Github
-" Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 
@@ -39,9 +35,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 
 Plugin 'a.vim'
-
-" plugin
-Plugin 'taglist.vim'
 
 " command-t is for fast file lookup, type \t to trigger
 " Git plugin not hosted on GitHub
@@ -55,7 +48,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 " spark up is a html-helping script
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-""
+"" install universal-ctags instead of old ctags
 Plugin 'majutsushi/tagbar'
 
 " theme related
@@ -75,6 +68,18 @@ Plugin 'vimoutliner/vimoutliner'
 " :help votl_cheatsheet for quick check
 "Plugin 'vim-scripts/cscope.vim'
 
+" See
+" https://powerline.readthedocs.io/en/master/installation/linux.html#fonts-installation
+" for fonts installation
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" python syntax check
+" press F7 to check
+Plugin 'nvie/vim-flake8'
+
+"" linter
+Plugin 'w0rp/ale'
+
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -84,6 +89,10 @@ Plugin 'vimoutliner/vimoutliner'
 call vundle#end()            " required
 " ycm
 " let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+
+" default split position
+set splitbelow
+set splitright
 
 " spell check
 set spelllang=en
@@ -95,6 +104,12 @@ highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
 "   https://github.com/Valloric/YouCompleteMe/issues/595
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
+
+" ale default, use :echo g: gle_c.. to check
+" ALEInfo
+let g:ale_c_parse_compile_commands = 1
+" let g:ale_completion_enabled = 1
+
 
 
 filetype plugin indent on    " required
@@ -133,14 +148,14 @@ syntax on
 " colorscheme solarized
 
 set cursorline
-set tabstop=2
 "
 ""always uses spaces instead of tab characters
 set expandtab
 " size of an "indent"
+set tabstop=2
 set shiftwidth=2
 
-"" 
+""
 set encoding=utf-8
 
 " set tags=; cs add in the .vimlocal file of project root
@@ -154,16 +169,18 @@ hi Search ctermfg=grey ctermbg=black
 " also http://vim.wikia.com/wiki/Auto_commands_for_C/C%2B%2B_editing
 if has("autocmd")
   augroup templates
-    autocmd BufNewFile *.sh 0r ~/configurations/vim/templates/skeleton.sh 
+    autocmd BufNewFile *.sh 0r ~/configurations/vim/templates/skeleton.sh
     "autocmd BufWritePre,FileWritePre *.sh   ks|call LastMod()|'s
 
-    autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c 
+    autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c
     "autocmd BufWritePre,FileWritePre *.cc   ks|call LastMod()|'s
+    autocmd BufNewFile *.cc 0r ~/configurations/vim/templates/skeleton.c
 
-    autocmd BufNewFile *.c 0r ~/configurations/vim/templates/skeleton.c 
+    autocmd BufNewFile *.cpp 0r ~/configurations/vim/templates/skeleton.c
     "autocmd BufWritePre,FileWritePre *.h   ks|call LastMod()|'s
 
     autocmd BufNewFile *.h 0r ~/configurations/vim/templates/skeleton.c |ks |call append(line('$'), IncludeGuard())|'s
+    autocmd BufNewFile *.hpp 0r ~/configurations/vim/templates/skeleton.c |ks |call append(line('$'), IncludeGuard())|'s
     "autocmd BufWritePre,FileWritePre *.c   ks|call LastMod()|'s
 
     autocmd BufNewFile CHANGELOG* 0r ~/configurations/vim/templates/skeleton.CHANGELOG.md |ks|'s
@@ -179,7 +196,13 @@ if has("autocmd")
 	   let lines = []
 	   let lines +=  ["#ifndef " . HeadName() . "_"]
 	   let lines +=  ["#define " . HeadName() . "_"]
+	   let lines +=  ["#ifdef __cplusplus"]
+     let lines +=  ["extern \"C\" {"]
+     let lines +=  ["#endif"]
 	   let lines +=  [""]
+     let lines +=  ["#ifdef __cplusplus"]
+     let lines +=  ["}"]
+     let lines +=  ["#endif"]
 	   let lines +=  ["#endif"]
 	   return lines
 	endfunction
@@ -193,10 +216,24 @@ if has("autocmd")
     " remove previous autocmds
     autocmd!
 
-    " set every new or read *.md buffer to use the markdown filetype 
+    " set every new or read *.md buffer to use the markdown filetype
     au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
   augroup END
+
+  augroup clangtools
+  " lang-format -style=google -dump-config > .clang-format
+    autocmd!
+
+		function! Formatonsave()
+			let l:formatdiff = 1
+      py3f /usr/share/clang/clang-format-6.0/clang-format.py
+		endfunction
+
+		autocmd BufWritePre *.h,*.cc,*.cpp,*.hpp call Formatonsave()
+
+  augroup END
+
 endif
 
 

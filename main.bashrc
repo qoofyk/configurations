@@ -75,9 +75,5 @@ fi
 #fi
 alias python-anaconda='/home/lifeng/software/anaconda3/bin/python'
 
-export PATH=$HOME/configurations/bin:$PATH
-
-
-
-
-
+export PATH=$HOME/configurations/bin:$HOME/.local/bin:$PATH:$HOME/software/install/bin/
+export MANPATH=$HOME/software/install/share/man:$MANPATH

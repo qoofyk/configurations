@@ -11,8 +11,8 @@ then source your .bashrc
 ```shell
 source .bashrc
 ```
-
-## configure vim
+## (Deprecated, use ./install.sh instead)
+configure vim
 ```shell
 cd $HOME
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

@@ -50,7 +50,7 @@ export PATH=/home/lifeng/tools/ParaView-5.4.1-Qt5-OpenGL2-MPI-Linux-64bit/bin:~/
     #source $INTEL_SOURCE_PATH
 #fi
 
-# this messes up with dbus
+# system use /usr/python3, spyder uses anaconda
 CONDA_PATH=$HOME/software/anaconda3
 if [ -d $CONDA_PATH ]; then
     export PATH=$CONDA_PATH/bin:$PATH
