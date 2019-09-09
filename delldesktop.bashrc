@@ -13,3 +13,4 @@ source ~/configurations/hosts.conf
 # add by yuankun
 export PATH=/home/fuyuan/Software/ParaView-5.5.0-Qt5-MPI-Linux-64bit/bin:$PATH
 export PATH=/home/fuyuan/Software/fieldview/fv/bin:$PATH
+export PATH=/home/fuyuan/Software/anaconda3/bin:$PATH
